@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../page/home_page.dart';
+import '../page/media_page.dart';
 import '../page/search_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,9 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(),
             IconButton(
               onPressed: () {
-                setState(() {
-                  currentPage = 2;
-                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MediaPage(),
+                  ),
+                );
               },
               icon: Icon(
                 Icons.add,
