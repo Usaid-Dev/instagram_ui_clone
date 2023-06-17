@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../page/home_page.dart';
 import '../page/media_page.dart';
+import '../page/reels_page.dart';
 import '../page/search_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +17,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: currentPage == 1 ? const SearchPage() : const HomePage(),
+      body: IndexedStack(
+        index: currentPage,
+        children: const [
+          HomePage(),
+          SearchPage(),
+          MediaPage(),
+          ReelsPage(),
+        ],
+      ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: [
