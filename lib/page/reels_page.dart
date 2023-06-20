@@ -9,8 +9,8 @@ class ReelsPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        leading: const Padding(
-          padding: EdgeInsets.only(top: 15, left: 1),
+        title: const Align(
+          alignment: Alignment.centerLeft,
           child: Text(
             'Reels',
             style: TextStyle(

@@ -4,6 +4,7 @@ import '../page/home_page.dart';
 import '../page/media_page.dart';
 import '../page/reels_page.dart';
 import '../page/search_page.dart';
+import '../page/user_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SearchPage(),
           MediaPage(),
           ReelsPage(),
+          UserPage(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
