@@ -1,10 +1,40 @@
 import 'package:flutter/material.dart';
 
-class UserPage extends StatelessWidget {
-  const UserPage({super.key});
+class UserPage extends StatefulWidget {
+  const UserPage({Key? key}) : super(key: key);
+
+  @override
+  State<UserPage> createState() => _UserPageState();
+}
+
+class _UserPageState extends State<UserPage> {
+  List<String> highlightsCover = [
+    'images/highlight_1.png',
+    'images/highlight_2.png',
+    'images/highlight_3.png',
+    'images/1.png',
+    'images/highlight_4.png',
+  ];
+
+  List<String> highlightsname = [
+    'Flutter ❤️',
+    'Github ❤️',
+    'Firebase ❤️',
+    'About Me',
+    'New',
+  ];
+
+  Future<void> onRefresh() async {
+    await Future.delayed(
+      const Duration(seconds: 1),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -34,10 +64,10 @@ class UserPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Row(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(
                   left: 15,
                 ),
@@ -46,9 +76,9 @@ class UserPage extends StatelessWidget {
                   backgroundImage: AssetImage('images/1.png'),
                 ),
               ),
-              SizedBox(width: 45),
+              const SizedBox(width: 45),
               Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -57,15 +87,15 @@ class UserPage extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               '0',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 4.0),
-                            Text(
+                            SizedBox(height: screenHeight * 0.01),
+                            const Text(
                               'Posts',
                               style: TextStyle(
                                 fontSize: 12,
@@ -74,18 +104,18 @@ class UserPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(width: 50),
+                        SizedBox(width: screenWidth * 0.1),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               '850',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 4.0),
-                            Text(
+                            SizedBox(height: screenHeight * 0.01),
+                            const Text(
                               'Followers',
                               style: TextStyle(
                                 fontSize: 12,
@@ -94,18 +124,18 @@ class UserPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(width: 50),
+                        SizedBox(width: screenWidth * 0.1),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               '120',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 4.0),
-                            Text(
+                            SizedBox(height: screenHeight * 0.01),
+                            const Text(
                               'Following',
                               style: TextStyle(
                                 fontSize: 12,
@@ -147,10 +177,31 @@ class UserPage extends StatelessWidget {
           ),
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 170,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.grey[350],
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Edit Profile',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Expanded(
                 child: Container(
-                  width: 170,
                   height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
@@ -159,27 +210,9 @@ class UserPage extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'Edit Profile',
+                      'Share profile',
                       style: TextStyle(color: Colors.black),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Container(
-                width: 170,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.grey[350],
-                ),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Share profile',
-                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),
@@ -200,49 +233,46 @@ class UserPage extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-              )
+              ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 30,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    5,
+                    (index) => Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 38,
+                            backgroundImage:
+                                const AssetImage("images/highlight_cover.png"),
+                            child: CircleAvatar(
+                              radius: 32,
+                              backgroundImage: AssetImage(
+                                highlightsCover[index],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            highlightsname[index],
+                            style: const TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                  ),
-                ],
+                ),
               ),
             ),
           ),

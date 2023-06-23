@@ -132,7 +132,6 @@ class _HomePageState extends State<HomePage> {
                 children: List.generate(
                     6,
                     (index) => Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
@@ -209,7 +208,6 @@ class _HomePageState extends State<HomePage> {
                                   Text.rich(
                                     TextSpan(
                                       children: [
-                                        // TextSpan(text: 'Liked by '),
                                         TextSpan(
                                           text: name[index],
                                           style: const TextStyle(
