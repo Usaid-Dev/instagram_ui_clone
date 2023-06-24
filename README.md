@@ -1,16 +1,23 @@
 # instagram_ui_clone
 
-A new Flutter project.
+In this project I implemented Instagram Ui in flutter which works on both Android & IOS.
 
-## Getting Started
+### Images of App
 
-This project is a starting point for a Flutter application.
+Splash_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/9a0be71f-98dc-4aef-8508-e1d50132b36f.png">
 
-A few resources to get you started if this is your first Flutter project:
+Home_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/83f58989-20ef-4ca6-a499-a6e6ff9e5ab7.png">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Search_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/8de00c3d-cfe6-449a-84dd-33141588d589.png">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Newpost_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/fc338094-84e6-4aeb-8725-919a7dac31ff.png">
+
+Reels_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/309a701b-3331-4cb5-8efa-9e880fd23c20.png">
+
+User_Screen
+<img src="https://github.com/Usaid-Dev/instagram_ui_clone/assets/67046451/ebec6d17-72b4-4b4e-82fa-467901c57017.png">
