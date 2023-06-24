@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../tabs/grid_view_tab.dart';
+import '../tabs/tags_view_tab.dart';
+
 class UserPage extends StatefulWidget {
   const UserPage({Key? key}) : super(key: key);
 
@@ -236,43 +239,76 @@ class _UserPageState extends State<UserPage> {
               ),
             ],
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    5,
-                    (index) => Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 38,
-                            backgroundImage:
-                                const AssetImage("images/highlight_cover.png"),
-                            child: CircleAvatar(
-                              radius: 32,
-                              backgroundImage: AssetImage(
-                                highlightsCover[index],
-                              ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(
+                  5,
+                  (index) => Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 38,
+                          backgroundImage:
+                              const AssetImage("images/highlight_cover.png"),
+                          child: CircleAvatar(
+                            radius: 32,
+                            backgroundImage: AssetImage(
+                              highlightsCover[index],
                             ),
                           ),
-                          const SizedBox(
-                            height: 5,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          highlightsname[index],
+                          style: const TextStyle(
+                            fontSize: 15,
                           ),
-                          Text(
-                            highlightsname[index],
-                            style: const TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
+              ),
+            ),
+          ),
+          const Expanded(
+            child: DefaultTabController(
+              length: 2,
+              child: Column(
+                children: [
+                  TabBar(
+                    tabs: [
+                      Tab(
+                        icon: Icon(
+                          Icons.grid_on,
+                          color: Colors.black,
+                          size: 35,
+                        ),
+                      ),
+                      Tab(
+                        icon: Icon(
+                          Icons.person_pin_outlined,
+                          color: Colors.black,
+                          size: 35,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        GridTab(),
+                        TagsView(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
