@@ -27,12 +27,6 @@ class _UserPageState extends State<UserPage> {
     'New',
   ];
 
-  Future<void> onRefresh() async {
-    await Future.delayed(
-      const Duration(seconds: 1),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
